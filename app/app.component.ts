@@ -1,33 +1,33 @@
 import { Component, EventEmitter } from 'angular2/core';
 
-//Children////////////////////////////////////
+//Grandchild////////////////////////////////////
 
 @Component({
-    selector: 'task-display',
-    inputs: ['task'],
+    selector: 'keg-display',
+    inputs: ['keg'],
   template: `
-    <h3>{{ task.description }}</h3>
+    <h3>{{ keg.name }}</h3>
+    <h3>{{ keg.brand }}</h3>
+    <h3>{{ keg.price }}</h3>
+    <h3>{{ keg.alContent }}</h3>
+    <h3>{{ keg.pintsLeft }}</h3>
   `
 })
 
-export class TaskComponent {
-  public task: Task;
+export class KegComponent {
+  public keg: Keg;
 }
 
 
-
+//Child/////////////////////////////
   @Component({
     selector: 'keg-list',
     inputs: ['kegList'],
     outputs: ['onKegSelect'],
+    directives: [KegComponent],
     template: `
-    <div *ngFor="#currentKeg of kegList" (click)="kegClicked(currentKeg)" [class.selected]="currentKeg === selectedKeg" class="container">
-      <h4>{{ currentKeg.name }}</h4>
-      <h4>Brewery:{{ currentKeg.brand }}</h4>
-      <h4>$ {{ currentKeg.price }}</h4>
-      <h4>Alcohol% {{ currentKeg.alContent }}</h4>
-      <h4>Pints left: {{ currentKeg.pintsLeft }}</h4>
-    </div>
+    <keg-display *ngFor="#currentKeg of kegList" (click)="kegClicked(currentKeg)" [class.selected]="currentKeg === selectedKeg" [keg]="currentKeg">
+    </keg-display>
     `
   })
 
@@ -46,7 +46,7 @@ export class TaskComponent {
   }
 
 
-//Parent////////////////////////////////////
+//Parent aka The Root////////////////////////////////////
 @Component({
   selector: 'my-app',
   directives: [KegListComponent],
