@@ -4,7 +4,7 @@ import { Component } from 'angular2/core';
   selector: 'my-app',
   template: `
     <h1>Bailey's Tap Room App</h1>
-    <div *ngFor="#keg of kegs" class="container">
+    <div *ngFor="#keg of kegs" (click)="kegWasSelected(keg)" class="container">
       <h4>{{ keg.name }}</h4>
       <h4>Brewery:{{ keg.brand}}</h4>
       <h4>$ {{ keg.price }}</h4>
@@ -23,6 +23,9 @@ export class AppComponent {
     new Keg("Apocalypse", "10 Barrel", "5", "7.5", 3),
     new Keg("Citrus Mistress", "Hop Valley", "6", "7", 4)
   ];
+  }
+  kegWasSelected(clickedKeg: Keg): void {
+    console.log(clickedKeg);
   }
 }
 
