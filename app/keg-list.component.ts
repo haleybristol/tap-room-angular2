@@ -1,6 +1,7 @@
 import { Component, EventEmitter } from 'angular2/core';
 import { KegComponent } from './keg.component';
 import { Keg } from './keg.model';
+import { EditKegDetailsComponent } from './edit-keg-details.component';
 
 //Child of the Root/////////////////////////////
 
@@ -9,10 +10,12 @@ import { Keg } from './keg.model';
     selector: 'keg-list',
     inputs: ['kegList'],
     outputs: ['onKegSelect'],
-    directives: [KegComponent],
+    directives: [KegComponent, EditKegDetailsComponent],
     template: `
     <keg-display *ngFor="#currentKeg of kegList" (click)="kegClicked(currentKeg)" [class.selected]="currentKeg === selectedKeg" [keg]="currentKeg">
     </keg-display>
+    <edit-keg-details *ngIf="selectedKeg" [keg]="selectedKeg">
+    </edit-keg-details>
     `
   })
 
