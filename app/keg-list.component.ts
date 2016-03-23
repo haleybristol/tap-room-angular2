@@ -1,5 +1,10 @@
+import { Component, EventEmitter } from 'angular2/core';
+import { KegComponent } from './keg.component';
+
 //Child of the Root/////////////////////////////
-  @Component({
+
+
+@Component({
     selector: 'keg-list',
     inputs: ['kegList'],
     outputs: ['onKegSelect'],
