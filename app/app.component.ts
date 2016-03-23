@@ -16,7 +16,12 @@ import { Component } from 'angular2/core';
 export class KegComponent {
     public keg: Keg;
     constructor(){
-    this.keg = new Keg("The Abyss", "Deschutes", "5", "11.5", 0);
+    this.keg = [
+    new Keg("The Abyss", "Deschutes", "5", "11.5", 0);
+    new Keg("Mirror Pond", "Deschutes", "5", "6.5", 1);
+    new Keg("Old Chub", "Oskar Meyer Blue's", "4", "6.5", 2);
+    new Keg("Apocalypse", "10 Barrel", "5", "7.5", 3);
+    new Keg("Citrus Mistress", "Hop Valley", "6", "7", 4);
   }
 }
 
