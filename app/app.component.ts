@@ -1,13 +1,27 @@
 import { Component, EventEmitter } from 'angular2/core';
 
-//Child////////////////////////////////////
+//Children////////////////////////////////////
+
+@Component({
+    selector: 'task-display',
+    inputs: ['task'],
+  template: `
+    <h3>{{ task.description }}</h3>
+  `
+})
+
+export class TaskComponent {
+  public task: Task;
+}
+
+
 
   @Component({
     selector: 'keg-list',
     inputs: ['kegList'],
-    // outputs: ['onKegSelect'],
+    outputs: ['onKegSelect'],
     template: `
-    <div *ngFor="#currentKeg of kegList" (click)="kegClicked(currentKeg)" class="container">
+    <div *ngFor="#currentKeg of kegList" (click)="kegClicked(currentKeg)" [class.selected]="currentKeg === selectedKeg" class="container">
       <h4>{{ currentKeg.name }}</h4>
       <h4>Brewery:{{ currentKeg.brand }}</h4>
       <h4>$ {{ currentKeg.price }}</h4>
@@ -19,8 +33,15 @@ import { Component, EventEmitter } from 'angular2/core';
 
   export class KegListComponent {
     public kegList: Keg[];
+    public onKegSelect: EventEmitter<Keg>;
+    public selectedKeg: Keg;
+    constructor() {
+      this.onKegSelect = new EventEmitter();
+    }
     kegClicked(clickedKeg: Keg): void {
       console.log(clickedKeg);
+      this.selectedKeg = clickedKeg;
+      this.onKegSelect.emit(clickedKeg);
     }
   }
 
@@ -32,7 +53,10 @@ import { Component, EventEmitter } from 'angular2/core';
   template: `
     <h1>Bailey's Tap Room App</h1>
     <div class="container">
-      <keg-list [kegList]="kegs"></keg-list>
+      <keg-list
+        [kegList]="kegs"
+        (onKegSelect)="kegWasSelected($event)">
+      </keg-list>
     </div>
   `
 })
