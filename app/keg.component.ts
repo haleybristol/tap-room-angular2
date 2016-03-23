@@ -1,5 +1,5 @@
 import { Component } from 'angular2/core';
-import { KegListComponent } from './keg-list.component';
+import { Keg } from './keg.model';
 
 
 //Child to KegListComponent/ Granchild of The Root //////////////////////////////////
