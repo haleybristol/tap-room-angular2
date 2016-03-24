@@ -3,14 +3,14 @@ import {Keg} from './keg.model';
 
 @Component ({
   selector: 'new-keg',
+  outputs: ['onSubmitNewKeg'],
   template: `
     <div class="new-keg-form">
       <input placeholder="Keg Name" class="col-sm-8 input-lg keg-form" #newName/>
       <input placeholder="Brand" class="col-sm-8 input-lg keg-form" #newBrand />
       <input placeholder="Price" class="col-sm-8 input-lg keg-form" #newPrice/>
       <input placeholder="Alcohol %" class="col-sm-8 input-lg keg-form" #newAlcohol/>
-
-        <button class="add-keg" (click)="addKeg(newName, newBrand, newPrice, newAlcohol)">Add</button>
+      <button class="add-keg" (click)="addKeg(newName, newBrand, newPrice, newAlcohol)" class="btn-default btn-lg add-button">Add</button>
     </div>
   `
 })
@@ -27,5 +27,4 @@ export class NewKegComponent {
     userPrice.value = "";
     userAlcohol.value = "";
   }
-  console.log(drake);
 }
