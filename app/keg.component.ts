@@ -13,10 +13,11 @@ import { Keg } from './keg.model';
     <h3>{{ keg.price }}</h3>
     <h3>{{ keg.alContent }}</h3>
     <h3>{{ keg.pintsLeft }}</h3>
-    <button>Sell a Pint</button>
+    <button (click)="sell(keg)">Sell a Pint</button>
   `
 })
 
 export class KegComponent {
   public keg: Keg;
+sell(keg){keg.pintsLeft = keg.pintsLeft -1;}
 }
