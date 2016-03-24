@@ -1,6 +1,7 @@
 import {Component, EventEmitter} from 'angular2/core';
 import {Keg} from './keg.model';
 
+///////Child of the KegListComponent//////////////
 @Component ({
   selector: 'new-keg',
   outputs: ['onSubmitNewKeg'],

@@ -13,6 +13,7 @@ import { Keg } from './keg.model';
       <keg-list
         [kegList]="kegs"
         (onKegSelect)="kegWasSelected($event)">
+        <button>Sell a Pint</button>
       </keg-list>
     </div>
   `
