@@ -4,4 +4,22 @@ h1 {
 
 .selected {
   color: #22bdf0;
+  font-size: 10px;
+}
+keg-display {
+  margin-top: 50px;
+}
+
+.display-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+h3 {
+  line-height: .8em;
+}
+
+.new-keg-form {
+  margin-top: 40px;
 }
