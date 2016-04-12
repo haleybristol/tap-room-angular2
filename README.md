@@ -8,9 +8,14 @@ This is a web application developed for a theoretical bar tender, it keeps track
 
 ## Setup/Installation Requirements
 
+```
+$ git clone <repository-url> this repository
+$ npm install
+$ bower install
+$ gulp build 
+$ gulp serve
 
-
-
+```
 
 ## Support and contact details
 
@@ -20,6 +25,8 @@ Feel free to contact me at hebristol@gmail.com.
 TypeScript<br>
 Angular2<br>
 Gulp<br>
+Node.js<br>
+bower<br>
 
 ### License
 
