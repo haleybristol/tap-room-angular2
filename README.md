@@ -8,7 +8,6 @@ This is a web application developed for a theoretical bar tender, it keeps track
 
 ## Setup/Installation Requirements
 
-Git Clone!
 
 
 
@@ -18,6 +17,7 @@ Git Clone!
 Feel free to contact me at hebristol@gmail.com.
 
 ## Technologies Used
+TypeScript<br>
 Angular2<br>
 Gulp<br>
 
